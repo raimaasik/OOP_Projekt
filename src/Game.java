@@ -64,7 +64,7 @@ public class Game {
     private static int getRandomPick(Board board, Random random) {
         while (true) {
             int randomPick = random.nextInt(9) + 1;
-            if (board.checkSpace(randomPick)) {
+            if (board.checkIfSpaceEmpty(randomPick)) {
                 return randomPick;
             }
         }
@@ -83,7 +83,7 @@ public class Game {
                         continue;
                     }
 
-                    if (board.checkSpace(playerPick)) {
+                    if (board.checkIfSpaceEmpty(playerPick)) {
                         return playerPick;
                     } else {
                         System.out.println("field already filled!");
@@ -114,7 +114,7 @@ public class Game {
     }
 
     public void drawBoard() {
-        System.out.println("┌───┬───┬───┐");
+        System.out.println("┌───┬───┬───┑");
         System.out.println("│ " + markToString(board.getSpaceMark(1)) + " │ " + markToString(board.getSpaceMark(2)) + " │ " + markToString(board.getSpaceMark(3)) + " │");
         System.out.println("├───┼───┼───┤");
         System.out.println("│ " + markToString(board.getSpaceMark(4)) + " │ " + markToString(board.getSpaceMark(5)) + " │ " + markToString(board.getSpaceMark(6)) + " │");
